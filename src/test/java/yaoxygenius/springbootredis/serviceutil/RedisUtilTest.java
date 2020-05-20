@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import yaoxygenius.springbootredis.bean.RedisSerializerPojo;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,7 @@ class RedisUtilTest {
 
     @Test
     public void contextLoads() {
-        this.redisUtil.addKey("key1", "value1", 10, TimeUnit.MINUTES);
+        this.redisUtil.addKey("key1", new RedisSerializerPojo(), 10, TimeUnit.MINUTES);
         String value1 = (String) this.redisUtil.getValue("key1");
         System.out.println(value1);
     }
